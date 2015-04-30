@@ -1,0 +1,27 @@
+Usage:
+
+1.	Open param.h, assign values to the parameters. The typical range is in  [ - ].
+2.	make clean; make
+3.	run	./gp and follow the instructions. The best_fitness, avg_fitness and variety values will be printed out for each epoch. 
+		- For the "train" mode, the default values in param.h yield a good result. Value outside of its range may lead to very large number of iterations with large error.
+		- For the "test" mode, the best equation (with error = 0.16) has been saved in best.txt, in pre-order tree format. The simplified equation will show up when testing with a real value.
+
+
+*** NOTE **:
+	If the Best_fitness is trapped in a value for a long time e.g., more than 100 iterations, just kill the program and run it again, and it seems that with only one program running at a time can achieve better performance. It might be related with random seed generator of the OS. So if the best_fitness is always trapped in a certain value, kill others and just run one ./gp program at one time.
+
+
+Files:
+
+1. Zhang-Project2.cc	The main function for genetic programming.
+2. gen.cc				Operate in generation level: do crossover, copyover, mutation, fitness selection and so on.
+3. gen.h				The head file for gen.cc
+4. tree.cc				Operate in tree level: do tree initialization, crossover, copy, muttation, error calculation and so on.
+5. tree.h				The head file for tree.cc
+6. param.h				Tune important parameters in genetic programming: population size, mutate rate, crossover rate, tournament size, tournament threshold, max tree controlling.
+7. Makefile				makefile 
+8. best. txt			Saved best equation,in pre-order. "#" represents a NULL node in a tree.
+9. proj2-data.dat		The provided data file to run this code. There is no data file in hydra to be refered to the code so I just copied the provided data here. If need to change data path/name, please modify Line 18 of tree.cc or copy over a new data to the directory.
+
+
+
